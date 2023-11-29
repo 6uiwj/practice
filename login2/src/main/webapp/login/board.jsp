@@ -53,7 +53,7 @@ window.onload = function() {
 
 
 <h4>접속 정보</h4>
-
+<form action="" method="get" name="loginForm">
 <c:if test="${not empty id }">
 ${id}님 환영합니다! 
 <br>
@@ -64,6 +64,7 @@ ${id}님 환영합니다!
 로그인이 필요합니다.
 <button id=loginBtn>로그인</button>	
 </c:if>
+</form>
 
 <h2>게시글 목록</h2>
 
@@ -73,8 +74,11 @@ ${id}님 환영합니다!
     <tr>
       <th scope="col">게시글 번호</th>
       <th scope="col">제목</th>
+      <th scope="col">내용</th>     
       <th scope="col">작성자</th>
       <th scope="col">등록일</th>
+      <th scope="col">조회수</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -88,12 +92,14 @@ if( list!=null) {
     <tr>
       <th scope="row"><%=dto.getNum() %></th>
       <td><a href = "/view?num=<%=dto.getNum()%>"><%=dto.getTitle() %></a></td>
+	  <td><%= dto.getContent()%></td>
       <td><%=dto.getId() %></td>
       <td><%=dto.getPostdate() %></td>
+      <td><%= dto.getVisitcount()%></td>      
     </tr>
  <% 	} 
 } else {
-	out.print("<tr><td colspan='3'>조회 결과가 없습니다.</td></tr>");
+	out.print("<tr><td colspan='6'>조회 결과가 없습니다.</td></tr>");
 	
 } %>
   </tbody>
