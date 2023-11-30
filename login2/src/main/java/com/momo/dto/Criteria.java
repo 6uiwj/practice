@@ -9,12 +9,14 @@ public class Criteria {
 	private int endNo;
 	private int startNo;
 	
+	
+	public Criteria() {}
 	/**
 	 * 생성자를 통해 페이지번호와 페이지당 게시물의 수를 받아와서
 	 * 시작번호와 끝번호를 구합니다.
 	 * @param pageNo
 	 * @param amount
-	 */
+	 */	
 	public Criteria(String pageNo, String amount) {
 		
 	if(pageNo!=null && !"".equals(pageNo)) {

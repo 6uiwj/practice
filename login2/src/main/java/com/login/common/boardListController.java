@@ -24,10 +24,14 @@ public class boardListController extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Criteria cri = new Criteria(request.getParameter("pageNo"), request.getParameter("amount"));
+
+		//페이지 블럭을 생성하기 위해 필요한 정보를 저장
 		BoardDaoOrder dao = new BoardDaoOrder();
-		
-		List<BoardDto> list = dao.getList(cri);		
-		request.setAttribute("list", list);
+		request.setAttribute("list", dao.getList(cri));
+		//List<BoardDto> list = dao.getList(cri);		
+		//request.setAttribute("list", list);
+		request.setAttribute("cri", cri);
+		request.setAttribute("totalCnt", dao.totalCnt());
 		System.out.println("boardListController - dao list생성성공");
 		dao.close();
 		//response.sendRedirect("/login/board.jsp");

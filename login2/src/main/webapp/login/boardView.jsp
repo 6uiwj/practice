@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body style ="background-color :#31333a;">
 
 <script type="text/javascript">
 window.onload=function(){
@@ -27,7 +27,8 @@ goList.addEventListener('click',function(){
 
 
 
-<h3>상세페이지야~</h3>
+<h3 style ="color: #b6b6b6;">상세페이지야~</h3>
+
 요청 게시글 번호 : <%=request.getParameter("num") %>
 <br>
 <button id="goList">리스트로 이동</button>

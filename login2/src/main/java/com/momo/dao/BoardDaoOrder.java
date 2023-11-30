@@ -78,5 +78,20 @@ public class BoardDaoOrder extends DBConnPool {
 		}
 		return res;
 	}
-
+	
+	public int totalCnt() {
+		int res=0;
+		String sql = "select count(*) from board";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				res= rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("BoardDao - totalCnt 쿼리 실행 실패");
+			e.printStackTrace();
+		}
+		return res;
+	}
 }
