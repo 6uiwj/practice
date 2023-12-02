@@ -30,6 +30,7 @@ public class Criteria {
 	
 	endNo = this.pageNo*this.amount;
 	startNo = endNo - (this.amount - 1);
+	
 	System.out.println("Criteria - endNo : " + endNo);
 	System.out.println("Criteria - startNo : " + startNo);
 	}

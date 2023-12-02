@@ -162,50 +162,8 @@ if( list!=null) {
 </table>
 
 </div>
-<!-- 페이지 네비게이션작성 -->
-<%	int blockStartNo = 0;
-	int blockEndNo = 0;
-	double pagePerBlock = 10.0;
-	//
-	Criteria cri = new Criteria();
-	int totalCnt =0;
-	if(request.getAttribute("cri")!= null && !"".equals(request.getAttribute("cri"))){
-		cri = (Criteria)request.getAttribute("cri");
-		//out.print("<br>요청 페이지 번호 - pageNo : " + cri.getPageNo());
-		//out.print("<br>페이지당 게시물 수 - amount : " + cri.getAmount());
 
-	}
-	
-	if(request.getAttribute("totalCnt")!= null && !"".equals(request.getAttribute("totalCnt"))){
-		totalCnt = Integer.parseInt(request.getAttribute("totalCnt").toString());
-		//out.print("<br>총 게시물의 수 - totalCnt : " + totalCnt);
-
-	}
-	out.print("<br>");
-	blockEndNo = (int)(Math.ceil(cri.getPageNo()/pagePerBlock)*pagePerBlock); 
-	blockStartNo = blockEndNo - ((int)pagePerBlock -1);
-//
-//		out.print("<a href = '/list?pageNo="+i+"'>"+i+"</a>"+" ");
-//	}
-%> 
-	<nav aria-label="Page navigation example">
-	  <ul class="pagination">
-	    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-<% 
-	for(int i=blockStartNo; i<=blockEndNo; i++){
-			  
-		  out.print("<li class='page-item'>");
-	  out.print("<a class = 'page-link' href='/list?pageNo="+i+"'>"+i+"</a>");
-			out.print("</li>");
-	
-}
-	//for(i=페이지블럭의 시작번호 ; i<= 페이지블럭의 끝번호 ;i++) {
-	//	<a href=/boardList?pageNo=페이지넘버>i</a>
-	//}
-%>
-	    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-	  </ul>
-	</nav>
+<%@include file="pageNavi.jsp" %>
 
 </body>
 </html>
