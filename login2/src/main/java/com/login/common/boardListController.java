@@ -44,6 +44,10 @@ public class boardListController extends HttpServlet {
 		request.getRequestDispatcher("/login/board.jsp").forward(request, response);
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("전송됨");
+	}
 
 
 }

@@ -61,7 +61,6 @@ public class loginController extends HttpServlet {
 			
 
 		}
-		memberDao.close();
 		
 	
 	}

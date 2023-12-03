@@ -6,18 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	#mainfont {
+	color:white;
+	}
+
+</style>
 </head>
 <body style ="background-color :#31333a;">
 
 <script type="text/javascript">
 window.onload=function(){
+	
 let deleteBtn = document.querySelector("#deleteBtn");
+if(deleteBtn != null) {
 deleteBtn.addEventListener('click',function() {
 	alert('정말 삭제하시겠습니까!!!!!');
 	viewForm.action='/delete';
 	viewForm.submit();
 });
-
+}
 let goList = document.querySelector("#goList");
 goList.addEventListener('click',function(){
 	location.href='/list';
@@ -48,15 +56,16 @@ out.print("<button id='deleteBtn'>삭제</button>");
 	System.out.println("boardView.jsp에 detail 정보 가져옴");
 
 %>
-<ul>
-	<li>제목 : <%=dto.getTitle() %></li>
-	<li>내용 : <%=dto.getContent() %></li>
-	<li>작성자 : <%=dto.getId() %></li>
-	<li>작성일 : <%=dto.getPostdate() %></li>
-	<li>조회수 :<%=dto.getVisitcount() %></li>
-		
-</ul>
-
+<div id="mainfont">
+	<ul>
+		<li>제목 : <%=dto.getTitle() %></li>
+		<li>내용 : <%=dto.getContent() %></li>
+		<li>작성자 : <%=dto.getId() %></li>
+		<li>작성일 : <%=dto.getPostdate() %></li>
+		<li>조회수 :<%=dto.getVisitcount() %></li>
+			
+	</ul>
+</div>
 <%} %>
 </body>
 </html>
